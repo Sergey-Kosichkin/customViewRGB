@@ -25,30 +25,38 @@ class ViewController: UIViewController {
         rgbView.layer.cornerRadius = 20
     }
     
-   
+    // MARK: Slider methods
     @IBAction func redSliderMoved() {
-        redLabel.text = String(format: "%.2f", redSlider.value)
+        redLabel.text = roundToString(redSlider.value)
         changeViewColor()
     }
     
     @IBAction func greenSliderMoved() {
-        greenLabel.text = String(format: "%.2f", greenSlider.value)
+        greenLabel.text = roundToString(greenSlider.value)
         changeViewColor()
     }
     
     @IBAction func blueSliderMoved() {
-        blueLabel.text = String(format: "%.2f", blueSlider.value)
+        blueLabel.text = roundToString(blueSlider.value)
         changeViewColor()
     }
     
 }
 
+
+// MARK: Extensions
 extension ViewController {
-    func changeViewColor() {
+    private func changeViewColor() {
         rgbView.backgroundColor = UIColor(red: CGFloat(redSlider.value),
                                           green: CGFloat(greenSlider.value),
                                           blue: CGFloat(blueSlider.value),
                                           alpha: 1)
+    }
+}
+
+extension ViewController {
+    private func roundToString(_ number: Float) -> String{
+        String(format: "%.2f", number)
     }
 }
 
