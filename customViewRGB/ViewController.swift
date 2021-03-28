@@ -52,11 +52,10 @@ extension ViewController {
                                           blue: CGFloat(blueSlider.value),
                                           alpha: 1)
     }
-}
-
-extension ViewController {
+    
     private func roundToString(_ number: Float) -> String{
         String(format: "%.2f", number)
     }
 }
+
 
